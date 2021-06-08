@@ -343,12 +343,6 @@ abstract class BaseEloquentRepository implements EloquentRepositoryInterface
 
     public function paginate(int $iLimit)
     {
-        /*$this->unsetClauses();
-
-        $this->newQuery()->eagerLoad();
-
-        return $this->oQuery->paginate($iLimit);*/
-
         $this->newQuery()->eagerLoad()->setClauses()->setScopes();
 
         $oModels = $this->oQuery->paginate($iLimit);

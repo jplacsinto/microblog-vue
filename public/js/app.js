@@ -4949,10 +4949,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsfeedComponent.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsfeedComponent.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsFeed.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsFeed.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5053,7 +5053,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+var apiUrl = 'https://microblog-vue.local.com/api/post';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    'author': {
+      type: Number,
+      "default": null
+    }
+  },
   data: function data() {
     return {
       posts: [],
@@ -5070,27 +5077,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var _this$posts;
 
-        var posts;
+        var feedUrl, posts;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this.loading = true;
-                _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://microblog-vue.local.com/api/post?page=".concat(_this.page))["catch"](function (error) {
+                feedUrl = apiUrl + "?page=".concat(_this.page);
+                if (_this.author != null) feedUrl += "&author=".concat(_this.author);
+                _context.next = 5;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get(feedUrl)["catch"](function (error) {
                   console.log(error);
                 })["finally"](function () {
                   _this.loading = false;
                 });
 
-              case 3:
+              case 5:
                 posts = _context.sent;
 
                 (_this$posts = _this.posts).push.apply(_this$posts, _toConsumableArray(posts.data.data));
 
                 _this.lastPage = posts.data.meta.last_page;
 
-              case 6:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -5144,12 +5153,10 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
+/*const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))*/
 
-files.keys().map(function (key) {
-  return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
-}); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+Vue.component('news-feed', __webpack_require__(/*! ./components/NewsFeed.vue */ "./resources/js/components/NewsFeed.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -39250,10 +39257,10 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/components/NewsfeedComponent.vue":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/NewsfeedComponent.vue ***!
-  \*******************************************************/
+/***/ "./resources/js/components/NewsFeed.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/NewsFeed.vue ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39261,8 +39268,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _NewsfeedComponent_vue_vue_type_template_id_04cfd79e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewsfeedComponent.vue?vue&type=template&id=04cfd79e& */ "./resources/js/components/NewsfeedComponent.vue?vue&type=template&id=04cfd79e&");
-/* harmony import */ var _NewsfeedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewsfeedComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/NewsfeedComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _NewsFeed_vue_vue_type_template_id_480a67fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewsFeed.vue?vue&type=template&id=480a67fc& */ "./resources/js/components/NewsFeed.vue?vue&type=template&id=480a67fc&");
+/* harmony import */ var _NewsFeed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewsFeed.vue?vue&type=script&lang=js& */ "./resources/js/components/NewsFeed.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -39272,9 +39279,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _NewsfeedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _NewsfeedComponent_vue_vue_type_template_id_04cfd79e___WEBPACK_IMPORTED_MODULE_0__.render,
-  _NewsfeedComponent_vue_vue_type_template_id_04cfd79e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _NewsFeed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _NewsFeed_vue_vue_type_template_id_480a67fc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NewsFeed_vue_vue_type_template_id_480a67fc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -39284,15 +39291,15 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/NewsfeedComponent.vue"
+component.options.__file = "resources/js/components/NewsFeed.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/NewsfeedComponent.vue?vue&type=script&lang=js&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/NewsfeedComponent.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************/
+/***/ "./resources/js/components/NewsFeed.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/NewsFeed.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39300,32 +39307,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsfeedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NewsfeedComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsfeedComponent.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsfeedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsFeed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NewsFeed.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsFeed.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsFeed_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
-/***/ "./resources/js/components/NewsfeedComponent.vue?vue&type=template&id=04cfd79e&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/NewsfeedComponent.vue?vue&type=template&id=04cfd79e& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/NewsFeed.vue?vue&type=template&id=480a67fc&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/NewsFeed.vue?vue&type=template&id=480a67fc& ***!
+  \*****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsfeedComponent_vue_vue_type_template_id_04cfd79e___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsfeedComponent_vue_vue_type_template_id_04cfd79e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsFeed_vue_vue_type_template_id_480a67fc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsFeed_vue_vue_type_template_id_480a67fc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsfeedComponent_vue_vue_type_template_id_04cfd79e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NewsfeedComponent.vue?vue&type=template&id=04cfd79e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsfeedComponent.vue?vue&type=template&id=04cfd79e&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsFeed_vue_vue_type_template_id_480a67fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NewsFeed.vue?vue&type=template&id=480a67fc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsFeed.vue?vue&type=template&id=480a67fc&");
 
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsfeedComponent.vue?vue&type=template&id=04cfd79e&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsfeedComponent.vue?vue&type=template&id=04cfd79e& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsFeed.vue?vue&type=template&id=480a67fc&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NewsFeed.vue?vue&type=template&id=480a67fc& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -52019,38 +52026,6 @@ Vue.compile = compileToFunctions;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Vue);
 
-
-/***/ }),
-
-/***/ "./resources/js sync recursive \\.vue$/":
-/*!************************************!*\
-  !*** ./resources/js/ sync \.vue$/ ***!
-  \************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var map = {
-	"./components/NewsfeedComponent.vue": "./resources/js/components/NewsfeedComponent.vue"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/js sync recursive \\.vue$/";
 
 /***/ })
 

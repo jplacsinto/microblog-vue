@@ -71,7 +71,16 @@
 <script>
     import axios from 'axios'
 
+    const apiUrl = 'https://microblog-vue.local.com/api/post'
+
     export default {
+    	props: {
+    		'author': {
+    			type: Number,
+    			default: null
+    		}
+    	},
+
         data () {
             return {
                 posts : [],
@@ -86,7 +95,11 @@
             async fetch () {
                 this.loading = true
 
-                let posts = await axios.get(`https://microblog-vue.local.com/api/post?page=${this.page}`)
+                let feedUrl = apiUrl+`?page=${this.page}`
+
+                if(this.author != null) feedUrl += `&author=${this.author}`
+
+                let posts = await axios.get(feedUrl)
                     .catch((error) => {
                         console.log(error)
                     }).finally(() => {
