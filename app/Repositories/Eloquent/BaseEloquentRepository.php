@@ -196,7 +196,7 @@ abstract class BaseEloquentRepository implements EloquentRepositoryInterface
     {
         $this->newQuery()->eagerLoad()->setClauses()->setScopes();
 
-        $oModel = $this->oQuery->firstOrFail();
+        $oModel = $this->oQuery->first();
 
         $this->unsetClauses();
 

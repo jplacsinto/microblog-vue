@@ -23,7 +23,9 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->name,
             'username' => $this->username,
+            'avatar' => 'https://picsum.photos/50/50',
             'posts' => PostResource::collection($this->whenLoaded('posts')),
             'url' => url('user/profile/'.$this->id)
         ];
